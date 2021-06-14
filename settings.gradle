@@ -1,0 +1,3 @@
+include ':slackwebhook'
+include ':app'
+rootProject.name = "SlackWebhookAndroid"
