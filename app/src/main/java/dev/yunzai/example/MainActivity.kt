@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import dev.yunzai.slackwebhook.SlackWebHook
-import dev.yunzai.slackwebhook.send
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

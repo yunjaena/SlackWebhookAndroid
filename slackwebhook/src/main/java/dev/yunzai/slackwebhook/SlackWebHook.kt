@@ -1,10 +1,15 @@
 package dev.yunzai.slackwebhook
 
+import android.content.Context
 import com.google.gson.annotations.SerializedName
 
 data class SlackWebHook(
-    var attachments: ArrayList<Attachment>? = null
+        var attachments: ArrayList<Attachment>? = null
 ) {
+    fun send(context: Context) {
+        this.sendMessage(context)
+    }
+
     companion object {
         @JvmStatic
         fun builder() = Builder()
@@ -53,7 +58,7 @@ data class SlackWebHook(
                 this.authorIcon = authorIcon
             }
 
-            fun timeStampEnabled(isTimeStampEnable: Boolean)= apply {
+            fun timeStampEnabled(isTimeStampEnable: Boolean) = apply {
                 this.isTimeStampEnable = isTimeStampEnable
             }
 
@@ -104,7 +109,7 @@ data class SlackWebHook(
                 }
 
                 return SlackWebHook(
-                    arrayListOf(attachment)
+                        arrayListOf(attachment)
                 )
             }
         }
@@ -122,24 +127,24 @@ data class SlackWebHook(
 }
 
 data class Attachment(
-    var title: String? = null,
-    var text: String? = null,
-    var fallback: String? = null,
-    var color: String? = null,
-    var pretext: String? = null,
-    @SerializedName("author_name") var authorName: String? = null,
-    @SerializedName("author_link") var authorLink: String? = null,
-    @SerializedName("author_icon") var authorIcon: String? = null,
-    var fields: ArrayList<Field> = arrayListOf(),
-    @SerializedName("ts") var timeStamp: String? = null,
-    @SerializedName("image_url") var imageUrl: String? = null,
-    @SerializedName("thumb_url") var thumbUrl: String? = null,
-    var footer: String? = null,
-    @SerializedName("footer_icon") var footerIcon: String? = null
+        var title: String? = null,
+        var text: String? = null,
+        var fallback: String? = null,
+        var color: String? = null,
+        var pretext: String? = null,
+        @SerializedName("author_name") var authorName: String? = null,
+        @SerializedName("author_link") var authorLink: String? = null,
+        @SerializedName("author_icon") var authorIcon: String? = null,
+        var fields: ArrayList<Field> = arrayListOf(),
+        @SerializedName("ts") var timeStamp: String? = null,
+        @SerializedName("image_url") var imageUrl: String? = null,
+        @SerializedName("thumb_url") var thumbUrl: String? = null,
+        var footer: String? = null,
+        @SerializedName("footer_icon") var footerIcon: String? = null
 )
 
 data class Field(
-    var title: String? = null,
-    var value: String? = null,
-    var short: Boolean = false
+        var title: String? = null,
+        var value: String? = null,
+        var short: Boolean = false
 )
