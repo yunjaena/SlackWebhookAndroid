@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SlackWebhookAndroid</string>
+    <string name="slack_webhook_path"></string>
 </resources>

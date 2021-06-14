@@ -53,7 +53,7 @@ data class SlackWebHook(
                 this.authorIcon = authorIcon
             }
 
-            fun authorIcon(isTimeStampEnable: Boolean) = apply {
+            fun timeStampEnabled(isTimeStampEnable: Boolean)= apply {
                 this.isTimeStampEnable = isTimeStampEnable
             }
 

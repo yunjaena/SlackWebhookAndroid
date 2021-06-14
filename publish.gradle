@@ -1,6 +1,6 @@
 ext {
     PUBLISH_GROUP_ID = 'io.github.yunjaena'
-    PUBLISH_VERSION = '0.0.2'
+    PUBLISH_VERSION = '0.0.3'
     PUBLISH_ARTIFACT_ID = 'slackwebhookandroid'
     PUBLISH_DESCRIPTION = 'SlackWebHook Android Library'
     PUBLISH_URL = 'https://github.com/yunjaena/SlackWebhookAndroid'

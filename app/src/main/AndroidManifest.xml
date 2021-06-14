@@ -12,6 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SlackWebhookAndroid">
 
+        <meta-data
+            android:name="slack_webhook_path"
+            android:value="@string/slack_webhook_path"
+            />
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
