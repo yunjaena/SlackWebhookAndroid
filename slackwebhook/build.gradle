@@ -18,9 +18,14 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField 'String', "SLACK_WEBHOOK_PATH", slack_webhook_path
+        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField 'String', "SLACK_WEBHOOK_PATH", slack_webhook_path
         }
     }
     compileOptions {
@@ -42,4 +47,13 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
+    // retrofit, okhttp
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-scalars:$retrofit_version"
+    implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
+
+    // Work Manager
+    implementation "androidx.work:work-runtime-ktx:$work_version"
 }
