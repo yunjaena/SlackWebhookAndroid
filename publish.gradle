@@ -1,0 +1,19 @@
+ext {
+    PUBLISH_GROUP_ID = 'io.github.yunjaena'
+    PUBLISH_VERSION = '0.0.1'
+    PUBLISH_ARTIFACT_ID = 'slackwebhookandroid'
+    PUBLISH_DESCRIPTION = 'SlackWebHook Android Library'
+    PUBLISH_URL = 'https://github.com/yunjaena/SlackWebhookAndroid'
+    PUBLISH_LICENSE_NAME = 'Apache License'
+    PUBLISH_LICENSE_URL =
+            'https://github.com/yunjaena/SlackWebhookAndroid/blob/main/LICENSE'
+    PUBLISH_DEVELOPER_ID = 'yunjaena'
+    PUBLISH_DEVELOPER_NAME = 'Yun-Jae Na'
+    PUBLISH_DEVELOPER_EMAIL = 'yunjaena@gmail.com'
+    PUBLISH_SCM_CONNECTION =
+            'scm:git:github.com/yunjaena/SlackWebhookAndroid.git'
+    PUBLISH_SCM_DEVELOPER_CONNECTION =
+            'scm:git:ssh://github.com:yunjaena/SlackWebhookAndroid.git'
+    PUBLISH_SCM_URL =
+            'https://github.com/yunjaena/SlackWebhookAndroid/tree/main'
+}

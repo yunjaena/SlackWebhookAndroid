@@ -71,3 +71,4 @@ opencv/*
 apk/
 
 .DS_Store
+*.gpg
