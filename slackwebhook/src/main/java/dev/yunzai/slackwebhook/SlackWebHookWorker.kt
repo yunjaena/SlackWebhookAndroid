@@ -1,6 +1,7 @@
 package dev.yunzai.slackwebhook
 
 import android.content.Context
+import android.content.pm.PackageManager
 import androidx.work.Worker
 import androidx.work.WorkerParameters
 import com.google.gson.Gson
@@ -9,27 +10,45 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
 
+
 internal class SlackWebHookWorker(
-    appContext: Context,
+    private val appContext: Context,
     workerParameters: WorkerParameters
 ) : Worker(appContext, workerParameters) {
     override fun doWork(): Result {
         val requestBody = inputData.getString(BODY) ?: return Result.failure()
-        return when (sendWebHook(requestBody)) {
+        val path = getApiKeyFromManifest(appContext) ?: return Result.failure()
+        return when (sendWebHook(path, requestBody)) {
             RESULT_OK -> Result.success()
             else -> Result.failure()
         }
     }
 
-    private fun sendWebHook(requestBody: String): String? {
+    private fun sendWebHook(path: String, requestBody: String): String? {
         return try {
             val body = Gson().fromJson(requestBody, SlackWebHook::class.java)
             val slackWebHookResult =
-                getRetrofit().create(SlackApi::class.java).sendWebHook(PATH, body)
+                getRetrofit().create(SlackApi::class.java).sendWebHook(path, body)
             slackWebHookResult.execute().body()
         } catch (e: Exception) {
             ""
         }
+    }
+
+    private fun getApiKeyFromManifest(context: Context): String? {
+        var apiKey: String? = null
+        try {
+            val packageName = context.packageName
+            val applicationInfo = context
+                .packageManager
+                .getApplicationInfo(packageName, PackageManager.GET_META_DATA)
+            val bundle = applicationInfo.metaData
+            if (bundle != null) {
+                apiKey = bundle.getString(META_DATA_PATH)
+            }
+        } catch (e: java.lang.Exception) {
+        }
+        return apiKey
     }
 
     private fun getRetrofit(): Retrofit {
@@ -45,8 +64,8 @@ internal class SlackWebHookWorker(
 
     companion object {
         const val WEB_HOOK_BASE_URL = "https://hooks.slack.com/"
-        val PATH = BuildConfig.SLACK_WEBHOOK_PATH
         const val BODY = "BODY"
         const val RESULT_OK = "ok"
+        const val META_DATA_PATH = "slack_webhook_path"
     }
 }

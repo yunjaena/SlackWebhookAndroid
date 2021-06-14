@@ -19,14 +19,9 @@ android {
     }
 
     buildTypes {
-        debug {
-            buildConfigField 'String', "SLACK_WEBHOOK_PATH", slack_webhook_path
-        }
-
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField 'String', "SLACK_WEBHOOK_PATH", slack_webhook_path
         }
     }
     compileOptions {
