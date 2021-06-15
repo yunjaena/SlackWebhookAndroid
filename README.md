@@ -58,7 +58,7 @@ dependencies {
 ```xml
 <meta-data
           android:name="slack_webhook_path"
-          android:value="service/12345/6789"
+          android:value="services/12345/6789"
 />
 ```
 
