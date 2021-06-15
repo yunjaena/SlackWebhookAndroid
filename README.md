@@ -11,7 +11,7 @@
     <a href="./license.md">
         <img src="https://img.shields.io/badge/license-Apache%202-blue" alt="License: Apache 2.0">
     </a>
-    <a href="https://search.maven.org/artifact/io.github.yunjaena/slackwebhookandroid/0.0.3/aar">
+    <a href="https://search.maven.org/artifact/io.github.yunjaena/slackwebhookandroid">
     <img src="https://img.shields.io/maven-central/v/io.github.yunjaena/slackwebhookandroid" alt="License: maven-central"></a>
 </p>
 
@@ -42,12 +42,13 @@
 
 ### Gradle
 
-<a href="https://search.maven.org/artifact/io.github.yunjaena/slackwebhookandroid/0.0.3/aar">
+<a href="https://search.maven.org/artifact/io.github.yunjaena/slackwebhookandroid">
 <img src="https://img.shields.io/maven-central/v/io.github.yunjaena/slackwebhookandroid" alt="License: maven-central"></a>
 
 ```groovy
 dependencies {
-    implementation 'io.github.yunjaena:slackwebhookandroid:0.0.3'
+    implementation 'io.github.yunjaena:slackwebhookandroid:x.y.z'
+    // x.y.z => Recent Release
 }
 ```
 
